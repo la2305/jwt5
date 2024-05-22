@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: Phuoc123@@
+  host: localhost
+  port: 33061
+
+development:
+  <<: *default
+  database: jwt5_development
+
+test:
+  <<: *default
+  database: jwt5_test
+
+production:
+  <<: *default
+  database: jwt5_production
+  username: your_production_username
+  password: <%= ENV['YOUR_PRODUCTION_DATABASE_PASSWORD'] %>
+  host: your_production_host
+  port: 33061

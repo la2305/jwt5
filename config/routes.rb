@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'current_user', to:'current_user#index'
   patch 'current_user/update_password', to: 'current_user#update_password'
+  patch 'current_user/update_info', to: 'current_user#update_info'
 
   devise_for :users, path:'', path_names: {
     sign_in: 'login',
@@ -19,7 +20,13 @@ Rails.application.routes.draw do
           get 'all_posts'
         end
       end
+
       resources :types do
+      end
+
+      devise_scope :user do
+        post 'forgot_password', to: 'passwords#create'
+        put 'reset_password', to: 'passwords#update'
       end
     end
   end

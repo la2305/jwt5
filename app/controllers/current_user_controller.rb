@@ -1,5 +1,4 @@
 class CurrentUserController < ApplicationController
-  include RackSessionFix
   before_action :authenticate_user!
 
   def index
@@ -15,8 +14,19 @@ class CurrentUserController < ApplicationController
     end
   end
 
+  def update_info
+    if current_user.update(user_params)
+      render json: { message: "Update succcessfully"}, status: :ok
+    else
+      render json: { errors: current_user.errors.full_messages}, status: :unprocessable_entity
+    end
+  end
+
   def password_params
     params.require(:user).permit(:current_password, :password, :password_confirmation)
   end
 
+  def user_params
+    params.require(:user).permit(:username, :phone, :gender, :date_of_birth, :country)
+  end
 end

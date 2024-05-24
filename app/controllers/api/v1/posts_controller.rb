@@ -58,6 +58,7 @@ class Api::V1::PostsController < ApiController
     end
   end
 
+  private
 
   def set_post
     @post = current_user.posts.find_by_id(params[:id])

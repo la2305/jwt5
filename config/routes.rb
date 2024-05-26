@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :types do
       end
 
+
     end
   end
 end

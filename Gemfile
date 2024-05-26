@@ -40,7 +40,7 @@ gem 'jsonapi-serializer'
 gem "mysql2", ">= 0.5"
 gem 'cancancan'
 gem 'kaminari'
-
+gem 'sidekiq'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

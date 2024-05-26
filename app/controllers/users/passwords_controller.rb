@@ -1,4 +1,4 @@
-class Api::V1::PasswordsController < Devise::PasswordsController
+class Users::PasswordsController < Devise::PasswordsController
   respond_to :json
 
   def create

@@ -1,4 +1,4 @@
-class CurrentUserController < ApplicationController
+class Users::CurrentUserController < ApplicationController
   before_action :authenticate_user!
 
   def index
